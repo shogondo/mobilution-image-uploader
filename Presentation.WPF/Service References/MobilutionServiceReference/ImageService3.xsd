@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ATRealize.Mobilution.WebAPI.Criteria" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ATRealize.Mobilution.WebAPI.Criteria" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ImageCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseCriteria">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ImageCriteria" nillable="true" type="tns:ImageCriteria" />
+  <xs:complexType name="BaseCriteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Limit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Offset" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseCriteria" nillable="true" type="tns:BaseCriteria" />
+</xs:schema>

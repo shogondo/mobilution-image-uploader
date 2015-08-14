@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,6 +57,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service References\MobilutionServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +99,25 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\MobilutionServiceReference\ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.FindResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobilutionServiceReference\ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.SearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobilutionServiceReference\ImageService.wsdl" />
+    <None Include="Service References\MobilutionServiceReference\ImageService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobilutionServiceReference\ImageService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobilutionServiceReference\ImageService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobilutionServiceReference\ImageService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -101,6 +126,24 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MobilutionServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobilutionServiceReference\ImageService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobilutionServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobilutionServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobilutionServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
