@@ -5,24 +5,38 @@ using System.Net.Http;
 using ATRealize.Mobilution.ImageUploader.Presentation.WPF.Exchange;
 using System.IO;
 using System.Runtime.Serialization.Json;
+using ATRealize.Mobilution.ImageUploader.Presentation.WPF.ViewModels;
+using ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference;
+using System.Threading.Tasks;
 
 namespace ATRealize.Mobilution.ImageUploader.Presentation.WPF
 {
     public partial class MainWindow : Window
     {
+        public MainViewModel ViewModel { get; private set; }
+
         public MainWindow()
         {
+            ViewModel = new MainViewModel();
+            DataContext = ViewModel;
             InitializeComponent();
+        }
+
+        protected async override void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+            await ViewModel.SearchAsync();
         }
 
         private void Upload(object sender, RoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog();
-            dialog.DefaultExt = "*.jpg";
-            if (dialog.ShowDialog() == true)
-            {
-                UploadSelectedFile(dialog.FileName);
-            }
+            ViewModel.Images.Add(new Image { Id = 5, Title = "Foo" });
+            //var dialog = new OpenFileDialog();
+            //dialog.DefaultExt = "*.jpg";
+            //if (dialog.ShowDialog() == true)
+            //{
+            //    UploadSelectedFile(dialog.FileName);
+            //}
         }
 
         private async void UploadSelectedFile(string path)
