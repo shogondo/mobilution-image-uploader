@@ -36,7 +36,11 @@ namespace ATRealize.Mobilution.ImageUploader.Presentation.WPF.ViewModels
             {
                 Content = File.ReadAllBytes(path),
                 ContentType = "image/jpg",
-                FileName = Path.GetFileName(path)
+                FileName = Path.GetFileName(path),
+                ThumbnailOption = new ThumbnailOption
+                {
+                    Width = 300
+                }
             };
             var client = new ImageServiceClient();
             var response = await client.CreateAsync(new CreateRequest(request));
