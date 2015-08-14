@@ -24,6 +24,7 @@
     <MetadataSource Address="http://localhost:54321/Services/ImageService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="ImageService4.xsd" MetadataType="Schema" ID="d27a4339-bf5c-4d73-9c8a-39ae61ca2200" SourceId="1" SourceUrl="http://localhost:54321/Services/ImageService.svc?xsd=xsd4" />
     <MetadataFile FileName="ImageService.xsd" MetadataType="Schema" ID="75951ec2-addd-4e44-810e-d24ef866911e" SourceId="1" SourceUrl="http://localhost:54321/Services/ImageService.svc?xsd=xsd0" />
     <MetadataFile FileName="ImageService1.xsd" MetadataType="Schema" ID="7c038101-bd48-4a27-911a-6973c685be6a" SourceId="1" SourceUrl="http://localhost:54321/Services/ImageService.svc?xsd=xsd1" />
     <MetadataFile FileName="ImageService2.xsd" MetadataType="Schema" ID="e7a790b3-b28b-42b5-bbe6-4d2da909d438" SourceId="1" SourceUrl="http://localhost:54321/Services/ImageService.svc?xsd=xsd2" />

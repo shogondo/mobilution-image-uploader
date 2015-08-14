@@ -175,6 +175,83 @@ namespace ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceR
     public partial class ImageCriteria : ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.BaseCriteria {
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImageRequest", Namespace="http://schemas.datacontract.org/2004/07/ATRealize.Mobilution.WebAPI.Requests")]
+    [System.SerializableAttribute()]
+    public partial class ImageRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContentTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FileNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ContentType {
+            get {
+                return this.ContentTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentTypeField, value) != true)) {
+                    this.ContentTypeField = value;
+                    this.RaisePropertyChanged("ContentType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MobilutionServiceReference.IImageService")]
     public interface IImageService {
@@ -190,6 +267,12 @@ namespace ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceR
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageService/Search", ReplyAction="http://tempuri.org/IImageService/SearchResponse")]
         System.Threading.Tasks.Task<ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.SearchResponse> SearchAsync(ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.SearchRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageService/Create", ReplyAction="http://tempuri.org/IImageService/CreateResponse")]
+        ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.CreateResponse Create(ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.CreateRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageService/Create", ReplyAction="http://tempuri.org/IImageService/CreateResponse")]
+        System.Threading.Tasks.Task<ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.CreateResponse> CreateAsync(ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.CreateRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -256,6 +339,38 @@ namespace ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceR
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Create", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CreateRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.ImageRequest request;
+        
+        public CreateRequest() {
+        }
+        
+        public CreateRequest(ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.ImageRequest request) {
+            this.request = request;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CreateResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CreateResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.Image CreateResult;
+        
+        public CreateResponse() {
+        }
+        
+        public CreateResponse(ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.Image CreateResult) {
+            this.CreateResult = CreateResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IImageServiceChannel : ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.IImageService, System.ServiceModel.IClientChannel {
     }
@@ -297,6 +412,14 @@ namespace ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceR
         
         public System.Threading.Tasks.Task<ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.SearchResponse> SearchAsync(ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.SearchRequest request) {
             return base.Channel.SearchAsync(request);
+        }
+        
+        public ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.CreateResponse Create(ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.CreateRequest request) {
+            return base.Channel.Create(request);
+        }
+        
+        public System.Threading.Tasks.Task<ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.CreateResponse> CreateAsync(ATRealize.Mobilution.ImageUploader.Presentation.WPF.MobilutionServiceReference.CreateRequest request) {
+            return base.Channel.CreateAsync(request);
         }
     }
 }
